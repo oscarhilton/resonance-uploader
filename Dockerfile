@@ -1,20 +1,20 @@
-# Use an official Python runtime as a parent image
-FROM python:3.8-slim
+# Use the official Node.js 16 as a parent image
+FROM node:16-alpine
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /usr/src/app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# Copy package.json and package-lock.json (if available) to the container
+COPY package*.json ./
 
-# Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+# Install any dependencies
+RUN npm install
 
-# Make port 5000 available to the world outside this container
-EXPOSE 5000
+# Bundle the app source inside the Docker image
+COPY . .
 
-# Define environment variable
-ENV FLASK_ENV=production
+# Make port 3000 available to the world outside this container
+EXPOSE 3000
 
-# Run app.py when the container launches
-CMD ["flask", "run", "--host=0.0.0.0"]
+# Define the command to run the app
+CMD [ "node", "server.js" ]
