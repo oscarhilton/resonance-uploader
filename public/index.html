@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Audio File</title>
+</head>
+<body>
+    <h1>Upload your audio file</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="name">Show Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter show name">
+        <br>
+        <label for="dateOfAir">Date of Air:</label>
+        <input type="text" id="dateOfAir" name="dateOfAir" placeholder="YYYY-MM-DD">
+        <br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" placeholder="Enter a brief description"></textarea>
+        <br>
+        <label for="file">Select file:</label>
+        <input type="file" id="file" name="file">
+        <br>
+        <button type="submit">Upload File</button>
+    </form>
+</body>
+</html>
