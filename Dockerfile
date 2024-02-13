@@ -10,6 +10,12 @@ COPY package*.json ./
 # Install any dependencies
 RUN npm install
 
+# Create an empty uploads directory
+RUN mkdir -p /usr/src/app/uploads
+
+# Set permissions for the uploads directory (optional, adjust as needed)
+RUN chmod 755 /usr/src/app/uploads
+
 # Bundle the app source inside the Docker image
 COPY . .
 
