@@ -1,0 +1,8 @@
+version: '3'
+services:
+  your_service_name:
+    image: ossiehilts/resonance_fm:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - /path/on/host:/usr/src/app/uploads
